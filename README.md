@@ -2,7 +2,7 @@ READ mE:
 
 Készítő: Jánosa István Benedek
 
-URL: https://github.com/janosabeniiii/webfejlesztes.git
+URL: https://janosabeniiii.github.io/webfejlesztes/
 
 Az oldalam a formula 1 nevű autóverseny sorozatról szól. Az index.html egy bevezető/összefoglaló, a drivers.html a versenyzőket, a tracks.html a pályákat, a champions.html a világbajnokokat mutatja be.
 
