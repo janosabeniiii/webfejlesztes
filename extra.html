@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jánosa Benedek">
+    <meta name="description" content="Formula 1 weboldal">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <script src="beadando.js"></script>
+    <title>Extras</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        label.error {
+        color: #FB3A3A;
+        }
+        </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Extras</h1>
+    </div>
+    <div id="nav">
+        <a href="index.html">Home</a>
+        <a href="drivers.html">Drivers</a>
+        <a href="tracks.html">Tracks</a>
+        <a href="champions.html">Champions</a>
+        <a href="#" id="current">Extra</a>
+    </div>
+    
+    <div id="content2">
+        <div id="vonal"></div>
+        <div id="form">
+            <script src="jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
+            <form id="myform" action="https://rf.uni-corvinus.hu/webfejlesztes/receive.php" target="_blank" method="post" novalidate>
+                <div id="elsoForm">
+                    <label for="nev">Name:</label>
+                    <input type="text" name="nev" id="nev"><br>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" size="50" id="kor"><br>
+                    <label for="kor">Age:</label>
+                    <select name="kor" size="1" id="kor">
+                        <option value="">Choose:</option>
+                        <option value="12">14 or younger</option>
+                        <option value="12">14-17</option>
+                        <option value="12">18-21</option>
+                        <option value="12">22-26</option>
+                        <option value="12">27-35</option>
+                        <option value="12">36-50</option>
+                        <option value="12">51 or older</option>
+                    </select><br>
+                    <label for="gender">Gender:</label>
+                    
+                    <input type="radio" name="gender" value="M" id="gender"><label>Male</label>
+                    
+                    <input type="radio" name="gender" value="F"><label>Female</label>
+                    
+                    <input type="radio" name="gender" value="O"><label>Other</label><br>
+                    <p><label for="accept"><input type="checkbox" name="accept" id="accept"></label>I accept that my answers may be used anonymously for public research purposes.</p>
+                </div>
+                <div id="masodikForm">
+                    <p><label for="kedvenc">Who is your favourite F1 driver?</label>
+                    <input type="text" name="kedvenc" id="kedvenc">
+                    </label></p>
+                    <p><label for="csapat">Which team are/were they the member of?                    <input type="text" name="csapat" id="csapat">
+                    </label></p>
+                </div>
+                <div id="harmadikForm">
+                    <p>Have they won a world championship?
+                    <label for="nyert"><input type="radio" name="nyert" value="yes" id="nyert">Yes</label>
+                    <label for="nyert"><input type="radio" name="nyert" value="no" id="nyert">No</label></p>
+                    <p><label for="mennyi">If yes, how many?</label>
+                    <input type="number" min="1" max="7" name="mennyi" id="mennyi"></p>
+                </div>
+                <div id="negyedikForm">
+                    <p>Since when have you been watching F1?</p>
+                        <label for="range-input">Year: <span id="range-value"></span></label>
+                        <input id="range-input" type="range" name="year" min="1950" max="2024" oninput="updateValue(this.value)"></label>
+
+                </div>
+                <div class="gombok">
+                    <input type="submit" id="submit" value="Submit">
+                    <input type="reset" id="reset" value="Reset">
+                </div>
+            </form>
+            <script>
+                $(document).ready(function(){
+                    $("#myform").validate({
+                        rules:{
+                            nev: "required",
+                            kor:"required",
+                            email:{
+                                email:true,
+                                required:true,
+                            },
+                            gender:"required",
+                            accept:"required",
+                            kedvenc:"required",
+                            nyert:"required",
+                            mennyi:"required",
+                            year:"required",
+                        },
+                        messages:{
+                            nev: "Please fill out!",
+                            kor:"Please fill out!",
+                            email:"Please fill out!",
+                            gender:"Please select",
+                            accept:"Please select!",
+                            kedvenc:"Please fill out!",
+                            nyert:"Please fill out!",
+                            mennyi:"Please fill out!",
+                            year:"Please select",
+                        }
+                    });
+                });
+                </script>
+
+            <div class="gombok">
+                <div>
+                    <button id="gomb1" onclick="next1()">Next</button>
+                </div>
+                <div>
+                    <button id="gomb2" onclick="next2()">Next</button>
+                    <button id="gomb3" onclick="back1()">Previous</button>
+                </div>
+                <div>
+                    <button id="gomb4" onclick="next3()">Next</button>
+                    <button id="gomb5" onclick="back2()">Previous</button>
+                </div>
+                <div>
+                    <button id="gomb6" onclick="back3()">Previous</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p>This website is for a school project!</p>
+    </div>
+
+</body>
